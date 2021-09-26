@@ -1,0 +1,27 @@
+@import "variables";
+
+.button {
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  &.danger {
+    background-color: $danger-color;
+    border-color: $danger-color;
+    color: $white-color;
+    font-weight: bold;
+    &:hover {
+      background-color: darken($danger-color, 5%);
+    }
+  }
+  &.light{
+    background-color: $white-color;
+    color: $blue-color;
+    border: 1px solid #D7D7D7;
+    &:hover {
+      background-color: darken($white-color, 5%);
+    }
+  }
+}
+.app-holder {
+  padding: 68px 25px 0;
+}

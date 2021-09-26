@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.filter-by-category {
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    .item {
+      margin-right: 10px;
+      margin-bottom: 0.5em;
+      border-radius: 25px;
+      border: 1px solid $light-grey;
+      padding: 10px 17px;
+      background-color: $white-color;
+      color: $black;
+      &:hover {
+        cursor: pointer;
+        background-color: darken($white-color, 5%)
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import "../../variables.scss";
+.box {
+  position: fixed;
+  background-color: $white-color;
+  width: 100%;
+  display: flex;
+  padding: 10px 23px;
+  border-bottom: 1px solid $darker-grey;
+  .left-content {
+    display: flex;
+    flex: 2;
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 25px;
+    }
+    .search-input {
+      position: relative;
+      width: 60%;
+      input {
+        width: 100%;
+        color: $middle-grey;
+        outline: none;
+        background-color: $white-color;
+        padding: 13px;
+        border: 1px solid $light-grey;
+        border-radius: 5px;
+      }
+      .search-icon {
+        color: $middle-grey;
+        position: absolute;
+        right: 10px;
+        top: 15px;
+      }
+    }
+  }
+}
