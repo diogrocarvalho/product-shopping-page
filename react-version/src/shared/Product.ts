@@ -9,4 +9,7 @@ export interface Product {
   imageUrl: string;
   price: number;
   description: string;
+  quantityInCart: number;
+  addedToCart: boolean;
+  show: boolean;
 }

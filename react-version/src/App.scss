@@ -43,6 +43,22 @@ a {
   padding: 68px 25px 0;
 }
 
+.app-wrapper {
+  display: flex;
+  .left-content{
+    width: calc(100% - $cart-side-bar-width);
+  }
+  .right-content{
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-left: 1px solid $light-grey;
+    z-index: 5;
+    background: white;
+    width: $cart-side-bar-width;
+  }
+}
+
 .no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */

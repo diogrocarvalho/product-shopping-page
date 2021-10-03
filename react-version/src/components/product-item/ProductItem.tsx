@@ -1,37 +1,31 @@
 import {IoAddCircleOutline} from 'react-icons/io5';
-import {useState} from 'react'
 import {AddRemoveItem} from '../add-remove-item/AddRemoveItem';
 import './ProductItem.scss';
+import {useDispatch} from 'react-redux';
+import {addToCart, remove} from '../../reducers/productSlice';
 
 export function ProductItem(props: any){
-
+  const dispatch = useDispatch();
   const {product} = props;
-  const [quantity, setQuantity] = useState(0);
 
-  const imageLoadError = () => {
-    // TODO handler to image error
+
+  const imageLoadError = (ev: any) => {
+    ev.target.src = 'no-image-placeholder.png'
   }
 
   const addToCard = () => {
-    addItem();
-  }
-
-  const addItem = () => {
-    setQuantity(quantity + 1);
+    dispatch(addToCart(product.productId.value))
   }
 
   const removeItem = () => {
-    if(quantity === 0) {
-      return;
-    }
-    setQuantity(quantity - 1);
+    dispatch(remove(product.productId.value))
   }
 
   const renderAddToCartButton = () => {
     return (
-        quantity === 0 ?
+        product.quantityInCart === 0 ?
             <button className={"button light full-width"} onClick={() => {addToCard()}}><IoAddCircleOutline/> Add to Cart</button> :
-            <AddRemoveItem quantity={quantity} add={() => addItem()} remove={() => removeItem()}/>
+            <AddRemoveItem quantity={product.quantityInCart} add={() => addToCard()} remove={() => removeItem()}/>
     )
   }
 

@@ -4,7 +4,9 @@ import {Category} from '../shared/Category';
 
 export const ProductsService = {
   getProducts: (params?: any): Product[] => {
-    return products || [];
+    return products.map(p => {
+      return {...p, quantityInCart: 0, addedToCart: false, show: true} as Product
+    });
   },
   getCategories: (params?: any): Category[] => {
     // TODO filter sub and subsub categories

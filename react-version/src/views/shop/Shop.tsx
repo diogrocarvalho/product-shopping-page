@@ -1,49 +1,32 @@
-import {ProductsService} from '../../services/producst.service';
 import {Product} from '../../shared/Product';
 import {CategoryFilter} from '../../components/category-filter/category-filter';
 import "./Shop.scss"
 import {ProductItem} from '../../components/product-item/ProductItem';
-import {useEffect, useState} from 'react';
-import {Category} from '../../shared/Category';
+import React from 'react';
+import {useSelector} from 'react-redux';
 
 export const Shop = () => {
   // TODO adding feedback to loading products
   // TODO infinite scroll or pagination to decrease render time
-
-  const [selectedCategory, setSelectedCategory] = useState(``);
-  const [productList, setProductList] = useState([] as Product[]);
-
-  const updateCategoryFilter = (category: Category) => {
-    if(category.label === selectedCategory){return}
-    setSelectedCategory(category.label);
-  }
-
-  useEffect(() => {
-    const filterProducts = () => {
-      const products: Product[] = ProductsService.getProducts();
-      if(selectedCategory?.length) {
-        const prods: Product[] = products.filter(p => p.category === selectedCategory);
-        setProductList(prods)
-      } else {
-        setProductList(products);
-      }
-    }
-    filterProducts();
-  }, [selectedCategory]);
+  const products = useSelector((state: any) => state.product.value);
+  const cart = useSelector((state: any) => state.cart.value);
 
   const ProductList = (props: any) => {
     const {products} = props
     return <div className={'product-list'}>
       {products.map((product: Product) =>
-        <ProductItem key={product?.productId?.value} product={product}/>
+          product.show ?
+        <ProductItem key={product?.productId?.value} product={product}/> : false
       )}
     </div>
   }
 
   return (
       <div className={"shop-wrapper"}>
-        <CategoryFilter filtered={(category: Category) => {updateCategoryFilter(category)}}/>
-        <ProductList products={productList}/>
+        {cart.map((c:any, i:any) => <span key={i.toString()}>{c.id} - {c.quantity}</span>)}
+        <CategoryFilter/>
+        <ProductList products={products}/>
       </div>
       );
+
 }
