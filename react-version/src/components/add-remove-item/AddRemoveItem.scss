@@ -1,0 +1,21 @@
+@import "../../variables";
+
+.add-remove-item-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border: 1px solid $button-border-color;
+  border-radius: 5px;
+  padding: 7px 0;
+  .icon {
+    color: $blue;
+    &:hover {
+      cursor: pointer;
+      color: darken($blue, 5%)
+    }
+  }
+  .value {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.shop-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

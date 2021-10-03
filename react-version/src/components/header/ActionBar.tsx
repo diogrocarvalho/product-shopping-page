@@ -6,8 +6,9 @@ import {NavLink,} from "react-router-dom";
 
 export const ActionBar = () => {
   const PROFILE_ICON = 'PROFILE'
+  const ICON_SIZE = '1.3em'
 
-  function ActionsWithIcon(props: any) {
+  const ActionsWithIcon = (props: any) => {
     const {label, icon, to} = props;
 
     return (
@@ -26,10 +27,10 @@ export const ActionBar = () => {
         <NavLink to={"/get-discount"}>
           <button className="button danger">Get $20 Off</button>
         </NavLink>
-        <ActionsWithIcon to={'/recipes'} label={'Recipes'} icon={<BsBook size={'1.3em'}/>}/>
-        <ActionsWithIcon to={'/shop'} label={'Shop'} icon={<AiOutlineShop size={'1.3em'}/>}/>
+        <ActionsWithIcon to={'/recipes'} label={'Recipes'} icon={<BsBook size={ICON_SIZE}/>}/>
+        <ActionsWithIcon to={'/shop'} label={'Shop'} icon={<AiOutlineShop size={ICON_SIZE}/>}/>
         <ActionsWithIcon to={'/profile'} label={'Profile'} icon={PROFILE_ICON}/>
-        <ActionsWithIcon to={'/settings'} label={'Settings'} icon={<GoSettings size={'1.3em'}/>}/>
+        <ActionsWithIcon to={'/settings'} label={'Settings'} icon={<GoSettings size={ICON_SIZE}/>}/>
       </span>
   )
 }

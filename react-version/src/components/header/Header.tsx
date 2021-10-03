@@ -5,7 +5,7 @@ import {NavLink,} from "react-router-dom";
 
 export const Header = () => {
 
-  function InputSearch(props: any) {
+  const InputSearch = (props: any) => {
     const {placeholder} = props;
     return (
         <span className="search-input">

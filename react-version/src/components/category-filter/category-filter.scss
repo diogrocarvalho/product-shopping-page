@@ -14,11 +14,11 @@
       border-radius: 25px;
       border: 1px solid $light-grey;
       padding: 10px 17px;
-      background-color: $white-color;
+      background-color: $white;
       color: $black;
       &:hover {
         cursor: pointer;
-        background-color: darken($white-color, 5%)
+        background-color: darken($white, 5%)
       }
     }
   }

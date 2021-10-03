@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 .box {
   position: fixed;
-  background-color: $white-color;
+  background-color: $white;
   width: 100%;
   display: flex;
   padding: 10px 23px;
@@ -22,7 +22,7 @@
         width: 100%;
         color: $middle-grey;
         outline: none;
-        background-color: $white-color;
+        background-color: $white;
         padding: 13px;
         border: 1px solid $light-grey;
         border-radius: 5px;
